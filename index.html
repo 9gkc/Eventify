@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project</title>
+    <title>Events Manager</title>
     <link rel="stylesheet" href="main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,17 +12,26 @@
       rel="stylesheet" />
   </head>
   <body>
-    <h1>Events Manager Application</h1>
-    <div class="container">
-      <div class="add-box">
+    <header>
+      <h1>Events Manager</h1>
+      <p class="status" role="status" aria-live="polite">Add an event to begin.</p>
+    </header>
+    <main class="container">
+      <form id="event-form" class="add-box">
         <h2>Add Event</h2>
-        <input type="text" class="event-name" placeholder="Event Name" />
-        <input type="text" class="organizer" placeholder="Event Organizer" />
-        <input type="date" class="event-date" />
-        <button class="add" onclick="addEvent()">Add Event</button>
-      </div>
-      <div class="events"></div>
-    </div>
+        <label for="event-name">Event name</label>
+        <input id="event-name" type="text" class="event-name" placeholder="Team meeting" maxlength="100" required />
+        <label for="organizer">Organizer</label>
+        <input id="organizer" type="text" class="organizer" placeholder="Your name" maxlength="80" required />
+        <label for="event-date">Date</label>
+        <input id="event-date" type="date" class="event-date" required />
+        <button class="add" type="submit">Add Event</button>
+      </form>
+      <section aria-labelledby="upcoming-events-title">
+        <h2 id="upcoming-events-title">Your events</h2>
+        <div class="events" aria-live="polite" aria-busy="true"></div>
+      </section>
+    </main>
     <script src="main.js"></script>
   </body>
 </html>

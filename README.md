@@ -16,11 +16,14 @@ Stay organized and never miss a deadline. This application provides a robust sys
 ## 🚀 Key Features
 - **Persistent Data**: Uses Browser LocalStorage to keep your events saved across sessions.
 - **Live Countdowns**: Real-time updates for days, hours, minutes, and seconds remaining.
-- **Validation**: Built-in logic to prevent scheduling events in the past.
+- **Validation**: Built-in logic to prevent scheduling events in the past and limit invalid input.
 - **Easy Management**: Add and delete events instantly with a clean dashboard view.
+- **Safe Rendering**: Event values are rendered with DOM APIs rather than HTML interpolation.
+- **Accessible UX**: Labeled fields, keyboard-friendly forms, and live status updates.
 
 ## 🛠️ Installation & Usage
-1. Clone the repository: `git clone https://github.com/9gkc/events-manager-app.git`
-2. Launch `index.html` to start tracking your events.
+1. Clone the repository: `git clone https://github.com/9gkc/Eventify.git`
+2. Serve or open `index.html` to start tracking events. Data remains in the current browser's LocalStorage.
+3. Existing data saved under the earlier `events` key is read automatically and retained when new changes are saved. No server or account is required.
 
 ---

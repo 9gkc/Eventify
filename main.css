@@ -7,6 +7,27 @@ body {
   font-optical-sizing: auto;
   background-color: #eee;
   margin: 0;
+  color: #1f2937;
+}
+header {
+  background-color: white;
+}
+.status {
+  margin: -12px 0 20px;
+  padding: 0 20px 20px;
+  text-align: center;
+  color: #666;
+}
+.status[data-tone="error"] {
+  color: #b42318;
+}
+.status[data-tone="success"] {
+  color: #166534;
+}
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
 }
 h1 {
   padding: 20px;
@@ -23,6 +44,8 @@ h1 {
 .add-box {
   background-color: white;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
 }
 .add-box h2 {
   margin: 0 0 20px;
@@ -36,7 +59,8 @@ h1 {
   background-color: #f4f3f3;
 }
 .add-box input:focus {
-  outline: none;
+  outline: 3px solid rgba(244, 67, 54, 0.25);
+  outline-offset: 1px;
 }
 .add-box .add {
   padding: 15px;
@@ -48,6 +72,11 @@ h1 {
   font-weight: bold;
   font-size: 18px;
   cursor: pointer;
+  border-radius: 6px;
+}
+.add-box .add:hover,
+.add-box .add:focus-visible {
+  background-color: #d9362b;
 }
 .events {
   display: grid;
@@ -58,6 +87,8 @@ h1 {
 .events .event {
   background-color: white;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 .events .event h3 {
   margin: 0 0 20px;
@@ -79,4 +110,18 @@ h1 {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 6px;
+}
+.events .event button:hover,
+.events .event button:focus-visible {
+  background-color: #0288c9;
+}
+.empty-state {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  color: #666;
 }
