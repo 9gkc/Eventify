@@ -15,6 +15,16 @@
 
 Stay organized and never miss a deadline. This application provides a robust system for tracking upcoming events with precise, real-time countdown timers.
 
+## Interface preview
+
+<p align="center">
+  <a href="https://9gkc.github.io/Eventify/">
+    <img src="docs/images/eventify-live-preview.webp" alt="The Eventify interface showing an explicitly labelled demonstration event in a browser-local dashboard" width="760">
+  </a>
+</p>
+
+> The preview shows an explicitly labelled demonstration entry. Eventify stores entries in the current browser's LocalStorage only; it does not create calendar bookings, accounts, attendees, or server-side event records.
+
 ## 🚀 Key Features
 - **Persistent Data**: Uses Browser LocalStorage to keep your events saved across sessions.
 - **Live Countdowns**: Real-time updates for days, hours, minutes, and seconds remaining.
