@@ -32,13 +32,15 @@ function readEvents() {
     const saved = localStorage.getItem(storageKey) ?? localStorage.getItem("events") ?? "[]";
     const stored = JSON.parse(saved);
     if (!Array.isArray(stored)) return [];
-    return stored.filter((event) => (
-      event &&
-      typeof event.name === "string" &&
-      typeof event.organizer === "string" &&
-      typeof event.date === "string" &&
-      Number.isFinite(event.timeStamp)
-    ));
+    return stored
+      .filter((event) => (
+        event &&
+        typeof event.name === "string" &&
+        typeof event.organizer === "string" &&
+        typeof event.date === "string" &&
+        Number.isFinite(event.timeStamp)
+      ))
+      .sort((a, b) => a.timeStamp - b.timeStamp);
   } catch (error) {
     console.error("Unable to read saved events", error);
     setStatus("Saved events could not be read from this browser.", "error");
@@ -59,7 +61,7 @@ function saveEvents(events) {
 
 function formatTimeLeft(timestamp) {
   const remaining = timestamp - Date.now();
-  if (remaining <= 0) return "Started";
+  if (remaining <= 0) return "Started / Past";
   const days = Math.floor(remaining / 86_400_000);
   const hours = Math.floor((remaining % 86_400_000) / 3_600_000);
   const minutes = Math.floor((remaining % 3_600_000) / 60_000);
@@ -92,8 +94,9 @@ function displayEvents() {
   }
 
   events.forEach((event, index) => {
+    const isPast = event.timeStamp <= Date.now();
     const card = document.createElement("article");
-    card.className = "event";
+    card.className = isPast ? "event event-past" : "event";
     const title = document.createElement("h3");
     title.textContent = event.name;
     card.appendChild(title);
@@ -135,6 +138,7 @@ function addEvent(event) {
 
   const events = readEvents();
   events.push({ name, organizer, date, timeStamp: timestamp });
+  events.sort((a, b) => a.timeStamp - b.timeStamp);
   if (!saveEvents(events)) return;
 
   form?.reset();
